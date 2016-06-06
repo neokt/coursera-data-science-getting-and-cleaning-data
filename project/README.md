@@ -30,7 +30,8 @@ download and extract the data to a "UCI HAR Dataset" folder in the
 working directory if this is not the case.
 
 To download the data manually:
+
 1. Download the following file:
-   https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  * https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 2. Unzip the file directly to the working directory. A folder called "UCI HAR Dataset" should now exist in your working directory.
