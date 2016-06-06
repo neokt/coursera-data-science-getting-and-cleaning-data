@@ -3,30 +3,31 @@ library(plyr)
 library(dplyr)
 
 # Initial file download and setup
-if(!file.exists("./data")) {dir.create("./data")}
+if(!file.exists("./UCI HAR Dataset")) {
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileUrl, destfile = "./data/dataset.zip", mode = "wb")
-unzip("./data/dataset.zip", exdir = "./data")
+download.file(fileUrl, destfile = "dataset.zip", mode = "wb")
+unzip("dataset.zip")
+}
 
-test <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
-test_labels <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
-subject_test <- read.table("./data/UCI HAR Dataset/test/subject_test.txt")
+test <- read.table("./UCI HAR Dataset/test/X_test.txt")
+test_labels <- read.table("./UCI HAR Dataset/test/y_test.txt")
+subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
 
-train <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
-train_labels <- read.table("./data/UCI HAR Dataset/train/y_train.txt")
-subject_train <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")
+train <- read.table("./UCI HAR Dataset/train/X_train.txt")
+train_labels <- read.table("./UCI HAR Dataset/train/y_train.txt")
+subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 # 1. Merges the training and the test sets to create one data set.
 dataset <- bind_rows(test, train)
 
 # 2. Extracts only the measurements on the mean and standard deviation for each 
 # measurement.
-features <- read.table("./data/UCI HAR Dataset/features.txt")
+features <- read.table("./UCI HAR Dataset/features.txt")
 filter <- grep("std|mean[^Freq]", features$V2)
 meanStd <- select(dataset, filter)
 
 # 3. Uses descriptive activity names to name the activities in the data set
-activity_labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
 activity_labels$V2 <- tolower(activity_labels$V2)
 activity_labels$V2 <- gsub("_", "", activity_labels$V2)
 activity_labels$V2 <- gsub("gd", "gD", activity_labels$V2)
