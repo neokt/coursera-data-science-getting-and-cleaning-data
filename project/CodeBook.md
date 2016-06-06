@@ -1,4 +1,4 @@
-### Getting and cleaning Data Codebook  
+# Getting and cleaning Data Codebook  
 
 ## Background
 
@@ -13,27 +13,27 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ## Data
 The relevant files that were used to compile a tidy data set were as follows:
 
-- `features.txt`: List of all features.
+* `features.txt`: List of all features.
 
-- `activity_labels.txt`: Links the class labels with their activity name.
+* `activity_labels.txt`: Links the class labels with their activity name.
 
-- `train/X_train.txt`: Training set.
+* `train/X_train.txt`: Training set.
 
-- `train/y_train.txt`: Training labels.
+* `train/y_train.txt`: Training labels.
 
-- `train/subject_train.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+* `train/subject_train.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-- `test/X_test.txt`: Test set.
+* `test/X_test.txt`: Test set.
 
-- `test/y_test.txt`: Test labels.
+* `test/y_test.txt`: Test labels.
 
-- `test/subject_test.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+* `test/subject_test.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
 The details in this COdebook are based on the following files:
 
-- `README.txt`
+* `README.txt`
 
-- `features_info.txt`: Shows information about the variables used on the feature vector.
+* `features_info.txt`: Shows information about the variables used on the feature vector.
 
 ## Variables
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
@@ -45,45 +45,50 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals (33 in total) were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-- tBodyAcc-XYZ
-- tGravityAcc-XYZ
-- tBodyAccJerk-XYZ
-- tBodyGyro-XYZ
-- tBodyGyroJerk-XYZ
-- tBodyAccMag
-- tGravityAccMag
-- tBodyAccJerkMag
-- tBodyGyroMag
-- tBodyGyroJerkMag
-- fBodyAcc-XYZ
-- fBodyAccJerk-XYZ
-- fBodyGyro-XYZ
-- fBodyAccMag
-- fBodyAccJerkMag
-- fBodyGyroMag
-- fBodyGyroJerkMag
+* tBodyAcc-XYZ
+* tGravityAcc-XYZ
+* tBodyAccJerk-XYZ
+* tBodyGyro-XYZ
+* tBodyGyroJerk-XYZ
+* tBodyAccMag
+* tGravityAccMag
+* tBodyAccJerkMag
+* tBodyGyroMag
+* tBodyGyroJerkMag
+* fBodyAcc-XYZ
+* fBodyAccJerk-XYZ
+* fBodyGyro-XYZ
+* fBodyAccMag
+* fBodyAccJerkMag
+* fBodyGyroMag
+* fBodyGyroJerkMag
 
 For each of these signals, the following variables were produced and kept:
-- mean(): Mean value
-- std(): Standard deviation
+* mean(): Mean value
+* std(): Standard deviation
 
 The tidy data set includes the above measurements for each subject 
 (numbered 1-30) and each of the following activities:
-- laying
-- sitting
-- standing
-- walking
-- walking downstairs
-- walking upstairs
+* laying
+* sitting
+* standing
+* walking
+* walking downstairs
+* walking upstairs
 
 ## Transformations
 The script applies the following transformations to the data:
+
 1. Merges the training and the test sets to create one data set.
+
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+
 3. Uses descriptive activity names to name the activities in the data set
-        - Applies lowercase transformation, removes underscores and capitalizes first letters of words for readability
+  * Applies lowercase transformation, removes underscores and capitalizes first letters of words for readability
+  
 4. Appropriately labels the data set with descriptive variable names.
-        - Applies lowercase transformation, removes underscores and parentheses, and capitalizes first letters of words for readability
+  * Applies lowercase transformation, removes underscores and parentheses, and capitalizes first letters of words for readability
+  
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-        - Merges subject list, activities and dataset with descriptive labels
-        - Calculates the column-wise average for each subject-activity pair
+  * Merges subject list, activities and dataset with descriptive labels
+  * Calculates the column-wise average for each subject-activity pair
