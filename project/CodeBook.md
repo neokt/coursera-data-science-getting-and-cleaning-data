@@ -1,4 +1,4 @@
-# Getting and cleaning Data Codebook  
+# Getting and Cleaning Data Codebook  
 
 ## Background
 
@@ -29,20 +29,28 @@ The relevant files that were used to compile a tidy data set were as follows:
 
 * `test/subject_test.txt`: Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-The details in this COdebook are based on the following files:
+The details in this Codebook are based on the following files:
 
 * `README.txt`
 
 * `features_info.txt`: Shows information about the variables used on the feature vector.
 
 ## Variables
+There are 68 variables in the tidied dataset:
+* subject: Numbered 1-30
+* activity: Consists of laying, sitting, standing, walking, walking downstairs and walking upstairs
+* 66 signal-measurement averages
+  * 33 signal-means
+  * 33 signal-standard deviations
+
+### Signals
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
 
-These signals (33 in total) were used to estimate variables of the feature vector for each pattern:  
+These signals (33 in total) were used to estimate measurements of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
 * tBodyAcc-XYZ
@@ -63,18 +71,9 @@ These signals (33 in total) were used to estimate variables of the feature vecto
 * fBodyGyroMag
 * fBodyGyroJerkMag
 
-For each of these signals, the following variables were produced and kept:
+For each of these signals, the following measurements were produced and kept:
 * mean(): Mean value
 * std(): Standard deviation
-
-The tidy data set includes the above measurements for each subject 
-(numbered 1-30) and each of the following activities:
-* laying
-* sitting
-* standing
-* walking
-* walking downstairs
-* walking upstairs
 
 ## Transformations
 The script applies the following transformations to the data:
